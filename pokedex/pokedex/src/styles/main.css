@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#root .App nav {
+  position: relative;
+}
+
+#root .App nav .rotated_top {
+  position: absolute;
+  background-color: #FF0066;
+  width: 30%;
+  min-height: 20vh;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotate(-30deg) translate(44.5%, 29%);
+          transform: rotate(-30deg) translate(44.5%, 29%);
+}
+
+#root .App nav .straight_top {
+  position: absolute;
+  background-color: #FF0066;
+  width: 30%;
+  min-height: 20vh;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-40.5%, 26%);
+          transform: translate(-40.5%, 26%);
+}
+/*# sourceMappingURL=main.css.map */

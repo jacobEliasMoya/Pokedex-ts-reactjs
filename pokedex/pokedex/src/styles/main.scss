@@ -1,0 +1,64 @@
+// DONT TOUCH
+@mixin flexCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column ;
+}
+// DONT TOUCH
+@mixin flexRow {
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row ;
+}
+// DONT TOUCH
+@mixin fullScreener {
+    min-height: 100vh;
+    min-width: 100%;
+}
+// DONT TOUCH
+@mixin animationInfo{
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+// DONT TOUCH
+@mixin absCentered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+#root{
+    .App{
+        nav{
+            position: relative;
+            .rotated_top{
+                position: absolute;
+                background-color: #FF0066;
+                width: 30%;
+                min-height: 20vh;
+                top: 0;
+                left: 0;
+                transform: rotate(-30deg) translate(44.5%,29%);
+            }
+            .straight_top{
+                position: absolute;
+                background-color: #FF0066;
+                width: 30%;
+                min-height: 20vh;
+                top: 0;
+                left: 0;
+                transform: translate(-40.5%,26%);
+            }
+        }
+    }
+}
