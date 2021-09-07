@@ -24,7 +24,8 @@ const thinRed ={
     borderRadius:'1vw',
     border:'.25vw solid black',
     padding:'.1vw',
-    marginBottom:'2vw'
+    marginBottom:'2vw',
+    boxShadow:' 0 0 1rem #FF0001'
 
 }
 
@@ -34,7 +35,9 @@ const thinGreen ={
     borderRadius:'1vw',
     border:'.25vw solid black',
     padding:'.1vw',
-    marginBottom:'2vw'
+    marginBottom:'2vw',
+    boxShadow:' 0 0 1rem #86BDFF'
+
 }
 
 const bigGreen ={
@@ -43,7 +46,8 @@ const bigGreen ={
     backgroundColor:'#33CB67',
     borderRadius:'1vw',
     border:'.25vw solid black',
-    padding:'.1vw'
+    padding:'.1vw',
+    boxShadow:'inset 0 0 1rem black'
 
 }
 
@@ -110,7 +114,7 @@ const DisplayNavigation:React.FC = () => {
     return(
         <div style={fullWidth} className='display_navigation'>
             <div style={partialWidth}>
-                <div style={swapButton} className='swap_button?'></div>
+                <div style={swapButton} className='swap_button'></div>
             </div>
             <div className='display_button_area' style={midWidth}>
                 <div style={thinRed} className='thin_red'></div>

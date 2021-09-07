@@ -115,6 +115,14 @@
                 .display_navigation{
                     @include flexRow();
                     align-items: flex-start;
+                    div{
+                        .swap_button{
+                            cursor: pointer;
+                            &:active{
+                                background-color: #929292 !important;
+                            }
+                        }
+                    }
                     .display_button_area{
                         @include flexRow();
                         justify-content: space-evenly;
@@ -128,6 +136,7 @@
                             @include flexRow();
                             justify-content: space-between;
                             button{
+                                cursor:pointer;
                                 &:active{
                                     background-color: #929292 !important;
                                 }

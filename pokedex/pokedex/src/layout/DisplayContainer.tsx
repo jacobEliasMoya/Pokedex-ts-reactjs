@@ -23,7 +23,8 @@ const innerImageContStyles = {
     border:'.25vw solid black',
     width:'85%',
     height:'70%',
-    overflow:'hidden'
+    overflow:'hidden',
+    boxShadow:'inset 0 0 1rem black'
 }
 
 const innerImage = {

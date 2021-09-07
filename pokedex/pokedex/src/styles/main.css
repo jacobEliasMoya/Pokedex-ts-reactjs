@@ -229,6 +229,14 @@
           align-items: flex-start;
 }
 
+#root .App .main_inner_container section .display_navigation div .swap_button {
+  cursor: pointer;
+}
+
+#root .App .main_inner_container section .display_navigation div .swap_button:active {
+  background-color: #929292 !important;
+}
+
 #root .App .main_inner_container section .display_navigation .display_button_area {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -273,6 +281,10 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+#root .App .main_inner_container section .display_navigation .display_dpad div button {
+  cursor: pointer;
 }
 
 #root .App .main_inner_container section .display_navigation .display_dpad div button:active {

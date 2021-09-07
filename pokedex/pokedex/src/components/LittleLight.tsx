@@ -7,8 +7,9 @@ const outerColorRed = {
     height:'2.5vw',
     borderRadius:'50%',
     transform:'translate(0%,50%)',
-    marginRight:'.75vw'
-    
+    marginRight:'.75vw',
+    boxShadow:' 0 0 1rem red'
+
 }
 const outerColorGreen = {
     border:'.2vw solid black',
@@ -17,8 +18,9 @@ const outerColorGreen = {
     height:'2.5vw',
     borderRadius:'50%',
     transform:'translate(0%,50%)',
-    marginRight:'.75vw'
-    
+    marginRight:'.75vw',
+    boxShadow:' 0 0 1rem green'
+
 }
 const outerColorYellow = {
     border:'.2vw solid black',
@@ -27,8 +29,9 @@ const outerColorYellow = {
     height:'2.5vw',
     borderRadius:'50%',
     transform:'translate(0%,50%)',
-    marginRight:'.75vw'
-    
+    marginRight:'.75vw',
+    boxShadow:' 0 0 1rem #FFCB67'
+
 }
 const innerShine = {
     backgroundColor:'white',

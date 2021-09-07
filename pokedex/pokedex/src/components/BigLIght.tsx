@@ -6,7 +6,8 @@ const outerColor = {
     width:'7vw',
     height:'7vw',
     borderRadius:'50%',
-    transform:'translate(0%,15%)'
+    transform:'translate(0%,15%)',
+    boxShadow:' 0 0 1rem #3398CD'
 }
 
 const innerColor = {
