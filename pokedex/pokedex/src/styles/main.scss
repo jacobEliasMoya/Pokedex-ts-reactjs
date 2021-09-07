@@ -39,8 +39,13 @@
 
 #root{
     .App{
+        position: relative;
         nav{
             position: relative;
+            @include flexRow();
+            justify-content: flex-start;
+            align-items: flex-start;
+            z-index: 2;
             .rotated_top{
                 position: absolute;
                 background-color: #FF0066;
@@ -48,17 +53,96 @@
                 min-height: 20vh;
                 top: 0;
                 left: 0;
-                transform: rotate(-30deg) translate(44.5%,29%);
+                transform: rotate(-30deg) translate(29%,-40.5%);
             }
             .straight_top{
                 position: absolute;
                 background-color: #FF0066;
-                width: 30%;
+                width: 10%;
                 min-height: 20vh;
                 top: 0;
                 left: 0;
-                transform: translate(-40.5%,26%);
+                transform: translate(0%,-13%);
+            }
+            .biglight,.little_light{
+                position: relative;
+                z-index: 100;
+                @include flexCol();
+                div{
+                    @include flexCol();
+                }
             }
         }
+        .main_inner_container{
+            left: 0;
+            top: 0;
+            position: absolute;
+            z-index: 1;
+            @include flexRow();
+            justify-content: space-evenly;
+            section{
+                @include flexCol();
+                div{
+                    @include flexCol();
+                    justify-content: space-evenly;
+                    .light_container{
+                        @include flexRow();
+                        .little_light{
+                            width: 2vw !important;
+                            height: 2vw !important;
+                            border:.2vw solid black !important;
+                        }
+                        div{
+                            transform: none !important;
+
+                            div {
+                                transform: translate(-60%,-60%) !important;
+                            }
+                        }
+                    }
+                    .apart{
+                        justify-content: space-between;
+                        padding: 0vw 3vw;
+                        .speaker_section{
+                            @include flexCol();
+                            justify-content: space-between;
+                            div{
+                                transform: translate(0%,0%) !important;
+                            }
+                        }
+                    }
+                }
+                .display_navigation{
+                    @include flexRow();
+                    align-items: flex-start;
+                    .display_button_area{
+                        @include flexRow();
+                        justify-content: space-evenly;
+                        flex-wrap: wrap;
+                    }
+                    .display_dpad{
+                        position: relative;
+                        div{
+                            overflow: hidden;
+                            position: absolute;
+                            @include flexRow();
+                            justify-content: space-between;
+                            button{
+                                &:active{
+                                    background-color: #929292 !important;
+                                }
+                            }
+                        }
+                        .inner_circle{
+                            z-index: 100;
+                        }
+                        .button_vertical{
+                            flex-direction: column;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
