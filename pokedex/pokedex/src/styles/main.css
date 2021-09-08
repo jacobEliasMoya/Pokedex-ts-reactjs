@@ -175,8 +175,8 @@
 }
 
 #root .App .main_inner_container section div .light_container div div {
-  -webkit-transform: translate(-60%, -60%) !important;
-          transform: translate(-60%, -60%) !important;
+  -webkit-transform: translate(20%, -50%) !important;
+          transform: translate(20%, -50%) !important;
 }
 
 #root .App .main_inner_container section div .apart {
@@ -300,5 +300,90 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+#root .App .main_inner_container section .key_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#root .App .main_inner_container section .key_container .enter {
+  width: 50% !important;
+}
+
+#root .App .main_inner_container section .key_container .backspace, #root .App .main_inner_container section .key_container .clear {
+  width: 25% !important;
+}
+
+#root .App .main_inner_container section .key_container .space {
+  width: 75% !important;
+}
+
+#root .App .main_inner_container section .key_container button {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#root .App .main_inner_container section .key_container button:hover {
+  background-color: #94c4ff !important;
+}
+
+#root .App .main_inner_container section .key_container button:active {
+  background-color: #62a9ff !important;
+}
+
+#root .App .main_inner_container section .light_container div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#root .App .main_inner_container section .light_container div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-transform: none !important;
+          transform: none !important;
+}
+
+#root .App .main_inner_container section .light_container div div div div {
+  -webkit-transform: translate(-60%, -60%) !important;
+          transform: translate(-60%, -60%) !important;
 }
 /*# sourceMappingURL=main.css.map */

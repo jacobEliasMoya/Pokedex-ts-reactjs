@@ -13,7 +13,7 @@ const outerImageContStyles = {
     backgroundColor:'white',
     border:'.25vw solid black',
     width:'80%',
-    height:'55%',
+    height:'60%',
     marginBottom:'2vw'
 }
 
