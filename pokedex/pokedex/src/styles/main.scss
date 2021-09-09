@@ -80,6 +80,10 @@
             z-index: 1;
             @include flexRow();
             justify-content: space-evenly;
+            overflow: hidden;
+            .spacer{
+                position: absolute;
+            }
             section{
                 @include flexCol();
                 div{
@@ -102,6 +106,7 @@
                     .apart{
                         justify-content: space-between;
                         padding: 0vw 3vw;
+
                         .speaker_section{
                             @include flexCol();
                             justify-content: space-between;
@@ -117,8 +122,13 @@
                     div{
                         .swap_button{
                             cursor: pointer;
+                            @include flexCol();
                             &:active{
                                 background-color: #929292 !important;
+                            }
+                            i{
+                                font-size: 2vw;
+                                transform: rotateY(180deg)
                             }
                         }
                     }
@@ -136,8 +146,12 @@
                             justify-content: space-between;
                             button{
                                 cursor:pointer;
+                                @include flexCol();
                                 &:active{
                                     background-color: #929292 !important;
+                                }
+                                i{
+                                    font-size: 1vw;
                                 }
                             }
                         }
@@ -184,6 +198,34 @@
                                     transform: translate(-60%,-60%) !important;
                                 }
                             }
+                        }
+
+                    }
+                    .yellow_light_container{
+                        div{
+                            .little_light{
+                                width: 4vw !important;
+                                height: 4vw !important;
+                            }
+                        }
+                    }
+                }
+                .button_navigation{
+                    div{
+                        cursor: pointer;
+                        &:hover{
+                            background-color: #6d6d6d !important;
+                        }
+                        &:active{
+                            background-color: rgb(75, 75, 75) !important;
+                            box-shadow: inset 0 0 .5vw black;
+                            i{
+                                font-size: 3vw;
+                                color: grey;
+                            }
+                        }
+                        i{
+                            font-size: 3vw;
                         }
                     }
                 }

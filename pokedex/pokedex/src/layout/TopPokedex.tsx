@@ -6,6 +6,7 @@ const navBackground = {
     backgroundColor: '#FF0066',
     width:'100%',
     maxHeight:'10vh',
+
 }
 
 const TopPokedex:React.FC = () => {

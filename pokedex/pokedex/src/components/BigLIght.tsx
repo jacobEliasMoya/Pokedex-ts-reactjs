@@ -7,7 +7,8 @@ const outerColor = {
     height:'7vw',
     borderRadius:'50%',
     transform:'translate(0%,15%)',
-    boxShadow:' 0 0 1rem #3398CD'
+    boxShadow:' 0 0 1rem #3398CD',
+    marginRight:'.5vw'
 }
 
 const innerColor = {

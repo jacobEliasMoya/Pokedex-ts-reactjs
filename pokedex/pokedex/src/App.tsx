@@ -12,8 +12,13 @@ const appStyles = {
 }
 
 function App() {
+  const fetchPokemon = async() =>{
+    await fetch('https://pokeapi.co/api/v2/pokemon/golem').then(result=>result.json()).then(data=>{
+      console.log(data)
+    })
+  }
   return (
-    <div style={appStyles} className="App">
+    <div onLoad={fetchPokemon} style={appStyles} className="App">
       <TopPokedex/>
       <PokedexInnerContainer/>
     </div>

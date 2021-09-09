@@ -110,6 +110,11 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  overflow: hidden;
+}
+
+#root .App .main_inner_container .spacer {
+  position: absolute;
 }
 
 #root .App .main_inner_container section {
@@ -231,10 +236,29 @@
 
 #root .App .main_inner_container section .display_navigation div .swap_button {
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #root .App .main_inner_container section .display_navigation div .swap_button:active {
   background-color: #929292 !important;
+}
+
+#root .App .main_inner_container section .display_navigation div .swap_button i {
+  font-size: 2vw;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 #root .App .main_inner_container section .display_navigation .display_button_area {
@@ -285,10 +309,27 @@
 
 #root .App .main_inner_container section .display_navigation .display_dpad div button {
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #root .App .main_inner_container section .display_navigation .display_dpad div button:active {
   background-color: #929292 !important;
+}
+
+#root .App .main_inner_container section .display_navigation .display_dpad div button i {
+  font-size: 1vw;
 }
 
 #root .App .main_inner_container section .display_navigation .display_dpad .inner_circle {
@@ -385,5 +426,33 @@
 #root .App .main_inner_container section .light_container div div div div {
   -webkit-transform: translate(-60%, -60%) !important;
           transform: translate(-60%, -60%) !important;
+}
+
+#root .App .main_inner_container section .light_container .yellow_light_container div .little_light {
+  width: 4vw !important;
+  height: 4vw !important;
+}
+
+#root .App .main_inner_container section .button_navigation div {
+  cursor: pointer;
+}
+
+#root .App .main_inner_container section .button_navigation div:hover {
+  background-color: #6d6d6d !important;
+}
+
+#root .App .main_inner_container section .button_navigation div:active {
+  background-color: #4b4b4b !important;
+  -webkit-box-shadow: inset 0 0 .5vw black;
+          box-shadow: inset 0 0 .5vw black;
+}
+
+#root .App .main_inner_container section .button_navigation div:active i {
+  font-size: 3vw;
+  color: grey;
+}
+
+#root .App .main_inner_container section .button_navigation div i {
+  font-size: 3vw;
 }
 /*# sourceMappingURL=main.css.map */

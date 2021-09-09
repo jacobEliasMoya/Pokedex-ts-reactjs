@@ -1,5 +1,6 @@
 import React from "react";
 import LittleLight from "../components/LittleLight";
+import FaIcon from "../components/FaIcon";
 
 const displayStyles={
     width:'50%',
@@ -34,6 +35,7 @@ const buttons = {
     height:'20%',
     border:'.25vw solid black',
     borderRadius:'.5vw',
+    fontSize:'1vw'
 }
 
 const greyBar ={
@@ -71,7 +73,7 @@ const MainInputContainer:React.FC = () => {
         <section style={displayStyles}>
             <div style={inputScreenDims} className='input_screen'></div>
             <div style={buttonWidth} className='key_container'>
-                {keyArr.map(item=><button style={buttons} key={keyInd+=keyInd} className={`letter ${item}`}>{item.toUpperCase()}</button>)}
+                {keyArr.map(item=><button style={buttons} key={keyInd=keyInd+1} className={`letter ${item}`}>{item.toUpperCase()}</button>)}
             </div>
             <div className='light_container' style={inputButtonWidth}>
                 <div style={{width:'100%',marginBottom:'1vw'}}>
@@ -84,7 +86,7 @@ const MainInputContainer:React.FC = () => {
                         <div style={greyBar}></div>
                     </div>
                 </div>
-                <div style={{width:'100%',marginBottom:'1vw'}}>
+                <div className='yellow_light_container' style={{width:'100%',marginBottom:'1vw'}}>
                     <div>
                         <div style={lightGreyBar}></div>
                         <div style={lightGreyBar}></div>
@@ -93,9 +95,9 @@ const MainInputContainer:React.FC = () => {
                         <LittleLight color='yellow'/>
                     </div>
                 </div>
-                <div style={{width:'100%',marginBottom:'2vw'}}>
-                    <div style={bigGreyBar}></div>
-                    <div style={bigGreyBar}></div>
+                <div className='button_navigation' style={{width:'100%',marginBottom:'2vw'}}>
+                    <div className='up' style={bigGreyBar}><FaIcon faname='fas fa-caret-up'/></div>
+                    <div className='down' style={bigGreyBar}><FaIcon faname='fas fa-caret-down'/></div>
                 </div>
             </div>
         </section>

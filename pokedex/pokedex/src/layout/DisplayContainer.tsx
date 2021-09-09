@@ -12,7 +12,7 @@ const outerImageContStyles = {
     borderRadius:'1vw',
     backgroundColor:'white',
     border:'.25vw solid black',
-    width:'80%',
+    width:'60%',
     height:'60%',
     marginBottom:'2vw'
 }
@@ -29,7 +29,8 @@ const innerImageContStyles = {
 
 const innerImage = {
     height:'140%',
-    width:'90%'
+    width:'90%',
+    transform:'translate(-8%)'
 }
 
 const fullWidth = {

@@ -62,7 +62,7 @@ const LittleLight:React.FC<colorAs> = (color) => {
 
     return (
         <div style={assignColor(color['color'])} className='little_light'>
-            <div style={innerShine}>
+            <div className='inner_shine' style={innerShine}>
             </div>
         </div>
     )

@@ -1,5 +1,6 @@
 import React from "react";
-import MainInputContainer from "./MainInputContianer";
+import { start } from "repl";
+import FaIcon from "../components/FaIcon";
 
 const swapButton ={
     width:'5vw',
@@ -9,7 +10,7 @@ const swapButton ={
     border:'.25vw solid black'
 }
 const fullWidth = {
-    width:'80%',
+    width:'65%',
 }
 const partialWidth = {
     width:'20%',
@@ -48,8 +49,8 @@ const bigGreen ={
     borderRadius:'1vw',
     border:'.25vw solid black',
     padding:'.1vw',
-    boxShadow:'inset 0 0 1rem black'
-
+    boxShadow:'inset 0 0 1rem black',
+    fontSize:'2vw'
 }
 
 const buttonHorz ={
@@ -112,27 +113,39 @@ const innerCircle ={
 }
 
 const DisplayNavigation:React.FC = () => {
+
+    const startingText ='START?'
+
     return(
         <div style={fullWidth} className='display_navigation'>
             <div style={partialWidth}>
-                <div style={swapButton} className='swap_button'></div>
+                <div style={swapButton} className='swap_button'><FaIcon faname='far fa-hand-pointer'/></div>
             </div>
             <div className='display_button_area' style={midWidth}>
                 <div style={thinRed} className='thin_red'></div>
                 <div style={thinGreen } className='thin_lightblue'></div>
-                <div style={bigGreen } className='power_text_display'></div>
+                <div style={bigGreen } className='power_text_display'>
+                    {startingText}
+                </div>
             </div>
             <div className='display_dpad' style={partialWidth}>
                 <div style={buttonHorz} className='button_horizontal'>
-                    <button style={buttonDimsHor2}></button>
-                    <button style={buttonDimsHor}></button>
+                    <button style={buttonDimsHor2}>
+                        <FaIcon faname='fas fa-caret-left'/>
+                    </button>
+                    <button style={buttonDimsHor}>
+                        <FaIcon faname='fas fa-caret-right'/>
+                    </button>
                 </div>
                 <div style={buttonVert} className='button_vertical'>
-                    <button style={buttonDimsVert}></button>
-                    <button style={buttonDimsVert2}></button>
+                    <button style={buttonDimsVert}>
+                        <FaIcon faname='fas fa-caret-up'/>
+                    </button>
+                    <button style={buttonDimsVert2}>
+                        <FaIcon faname='fas fa-caret-down'/>
+                    </button>
                 </div>
                 <div className='inner_circle' style={innerCircle}></div>
-
             </div>
         </div>
     )
