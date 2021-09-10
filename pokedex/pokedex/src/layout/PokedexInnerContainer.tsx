@@ -14,7 +14,7 @@ const spacer = {
     width:'2vw',
     height:'100%',
     backgroundColor:'#FF0066',
-    boxShadow:'0 0 1vw black'
+    boxShadow:'0 0 5vw black'
 }
     
 const PokedexInnerContainer:React.FC = () => {

@@ -123,8 +123,15 @@
                         .swap_button{
                             cursor: pointer;
                             @include flexCol();
-                            &:active{
+                            &:hover{
                                 background-color: #929292 !important;
+                            }
+                            &:active{
+                                background-color: #4d4d4d !important;
+                                box-shadow: inset 0 0 1vw black;
+                                i{
+                                    color: grey;
+                                }
                             }
                             i{
                                 font-size: 2vw;

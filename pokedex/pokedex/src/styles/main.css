@@ -251,8 +251,18 @@
           flex-direction: column;
 }
 
-#root .App .main_inner_container section .display_navigation div .swap_button:active {
+#root .App .main_inner_container section .display_navigation div .swap_button:hover {
   background-color: #929292 !important;
+}
+
+#root .App .main_inner_container section .display_navigation div .swap_button:active {
+  background-color: #4d4d4d !important;
+  -webkit-box-shadow: inset 0 0 1vw black;
+          box-shadow: inset 0 0 1vw black;
+}
+
+#root .App .main_inner_container section .display_navigation div .swap_button:active i {
+  color: grey;
 }
 
 #root .App .main_inner_container section .display_navigation div .swap_button i {
