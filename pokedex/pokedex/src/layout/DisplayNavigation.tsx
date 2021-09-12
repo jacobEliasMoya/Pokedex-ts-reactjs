@@ -1,6 +1,7 @@
-import React from "react";
-import { start } from "repl";
+import React, { useState } from "react";
 import FaIcon from "../components/FaIcon";
+import { useAppSelector,useAppDispatch } from "../app/hooks";
+import { beginApp } from "../store/features/AppStart";
 
 const swapButton ={
     width:'5vw',
@@ -50,7 +51,7 @@ const bigGreen ={
     border:'.25vw solid black',
     padding:'.1vw',
     boxShadow:'inset 0 0 1rem black',
-    fontSize:'2vw'
+    fontSize:'2vw',
 }
 
 const buttonHorz ={
@@ -114,18 +115,23 @@ const innerCircle ={
 
 const DisplayNavigation:React.FC = () => {
 
-    const startingText ='START?'
+    
+    const isAppOn = useAppSelector(state=>state.appOnReducer.appOn);
+    const dispatch = useAppDispatch();
+    const handleAppStart = () => {
+        !isAppOn ? dispatch(beginApp()) : console.log(); 
+    }
 
     return(
         <div style={fullWidth} className='display_navigation'>
             <div style={partialWidth}>
-                <div style={swapButton} className='swap_button'><FaIcon faname='far fa-hand-pointer'/></div>
+                <div onClick={handleAppStart} style={swapButton} className='swap_button'><FaIcon faname='far fa-hand-pointer'/></div>
             </div>
             <div className='display_button_area' style={midWidth}>
                 <div style={thinRed} className='thin_red'></div>
                 <div style={thinGreen } className='thin_lightblue'></div>
                 <div style={bigGreen } className='power_text_display'>
-                    {startingText}
+                    {!isAppOn ? 'START' : 'Select a Pokemon'}
                 </div>
             </div>
             <div className='display_dpad' style={partialWidth}>

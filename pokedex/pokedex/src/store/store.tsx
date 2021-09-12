@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-
+import appOnReducer from './features/AppStart'
 // initially configuring store with certain reducer
 const store = configureStore({
     reducer:{
-
+        appOnReducer
     }
 })
 

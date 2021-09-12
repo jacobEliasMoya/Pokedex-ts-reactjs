@@ -1,0 +1,4 @@
+first, on click, fetches list off all pokemon
+
+list is added to state with toolkit
+can navigate the list of options and when you click it goes to pokemons URL
