@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import TopPokedex from './layout/TopPokedex';
 import PokedexInnerContainer from './layout/PokedexInnerContainer';
 import { useAppDispatch, useAppSelector } from './app/hooks';
-import { is } from '@reduxjs/toolkit/node_modules/immer/dist/internal';
+import { setPoke } from './store/features/SetPokeURL';
+import { PokeAPIinfo } from './store/features/SetPokeURL';
 
 const appStyles = {
   backgroundColor:'#A40041',
@@ -13,14 +14,15 @@ const appStyles = {
   borderBottom:'2vw solid #FF0066',
 }
 
-function App() {
+const App:React.FC = () => {
   
-  const isAppOn = useAppSelector(state => state.appOnReducer.appOn)
+  const isAppOn = useAppSelector(state => state.appOnReducer.appOn);
+  const dispatch = useAppDispatch();
 
   const fetchPokemon = async() =>{
     await fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1118').then(result=>result.json()).then(data=>{
-      console.log(data)  
-  })
+      dispatch(setPoke(data))
+    })
   }
 
   useEffect(()=>{

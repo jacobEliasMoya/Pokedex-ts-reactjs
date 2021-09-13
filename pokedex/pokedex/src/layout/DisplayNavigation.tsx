@@ -52,6 +52,7 @@ const bigGreen ={
     padding:'.1vw',
     boxShadow:'inset 0 0 1rem black',
     fontSize:'2vw',
+    justifyContent:'center',
 }
 
 const buttonHorz ={
@@ -131,7 +132,7 @@ const DisplayNavigation:React.FC = () => {
                 <div style={thinRed} className='thin_red'></div>
                 <div style={thinGreen } className='thin_lightblue'></div>
                 <div style={bigGreen } className='power_text_display'>
-                    {!isAppOn ? 'START' : 'Select a Pokemon'}
+                    {!isAppOn ? 'START' : 'Pokemon Loaded'}
                 </div>
             </div>
             <div className='display_dpad' style={partialWidth}>
