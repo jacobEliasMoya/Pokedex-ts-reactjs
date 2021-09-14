@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
+import React, { ReactNode, useEffect } from "react";
 import LittleLight from "../components/LittleLight";
 import FaIcon from "../components/FaIcon";
 import { useAppSelector } from "../app/hooks";
-import { constants } from "buffer";
-import { isatty } from "tty";
+
 const displayStyles={
     width:'50%',
     height:'100%',
+}
+
+const pokeA = {
+    width:'100%',
+    padding:'1rem'
 }
 
 const inputScreenDims = {
@@ -16,7 +20,7 @@ const inputScreenDims = {
     borderRadius:'1vw',
     border:'0.25vw solid black',
     boxShadow:'inset 0 0 1rem black',
-    marginBottom:'1vw'
+    marginBottom:'1vw',
 }
 
 const buttonWidth = {
@@ -72,17 +76,12 @@ const MainInputContainer:React.FC = () => {
     const keyArr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','enter','backspace','space','clear']
     let pokemon = useAppSelector(state=>state.pokeImporter[0])
     let isAppOn = useAppSelector(state=>state.appOnReducer.appOn)
-
     let keyInd = 0;
-
-    useEffect(()=>{
-        pokemon ? console.log(pokemon.results) : console.log('bam')
-    },[pokemon])
 
     return(
         <section style={displayStyles}>
-            <div style={inputScreenDims} className='input_screen'>
-            </div>
+            {pokemon ? ( <div style={inputScreenDims} className='input_screen'>{pokemon.results.map(item=>{return <a style={pokeA} href={`${item.url}`}>{item.name}</a>})}</div>) :  <div style={inputScreenDims} className='input_screen'></div>}
+
             <div style={buttonWidth} className='key_container'>
                 {keyArr.map(item=><button style={buttons} key={keyInd=keyInd+1} className={`letter ${item}`}>{item.toUpperCase()}</button>)}
             </div>

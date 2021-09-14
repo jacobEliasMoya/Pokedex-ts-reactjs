@@ -465,4 +465,8 @@
 #root .App .main_inner_container section .button_navigation div i {
   font-size: 3vw;
 }
+
+#root .App .main_inner_container section .input_screen {
+  overflow: scroll;
+}
 /*# sourceMappingURL=main.css.map */

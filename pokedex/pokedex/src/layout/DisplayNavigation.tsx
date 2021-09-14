@@ -119,10 +119,12 @@ const DisplayNavigation:React.FC = () => {
     
     const isAppOn = useAppSelector(state=>state.appOnReducer.appOn);
     const dispatch = useAppDispatch();
+
     const handleAppStart = () => {
         !isAppOn ? dispatch(beginApp()) : console.log(); 
     }
 
+    
     return(
         <div style={fullWidth} className='display_navigation'>
             <div style={partialWidth}>
