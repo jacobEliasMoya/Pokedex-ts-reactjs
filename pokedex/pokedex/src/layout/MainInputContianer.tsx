@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useEffect,useState } from "react";
 import LittleLight from "../components/LittleLight";
 import FaIcon from "../components/FaIcon";
 import { useAppSelector } from "../app/hooks";
@@ -21,6 +21,8 @@ const inputScreenDims = {
     border:'0.25vw solid black',
     boxShadow:'inset 0 0 1rem black',
     marginBottom:'1vw',
+    fontSize:'1vw',
+    color:'white'
 }
 
 const buttonWidth = {
@@ -69,22 +71,70 @@ const bigGreyBar ={
 
 }
 
+const liveFeed = {
+    width: '100%',
+    backgroundColor: 'white',
+    border:'.25vw solid black',
+    transform: 'translate(0%,100%)',
+    borderRadius:'.75vw',
+    borderTopLeftRadius:'0',
+    borderTopRightRadius:'0',
+    opacity:'1',
+    color:'black',
+}
+
+const liveFeedVis = {
+    opacity:'0'
+}
 
 
 const MainInputContainer:React.FC = () => {
 
     const keyArr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','enter','backspace','space','clear']
-    let pokemon = useAppSelector(state=>state.pokeImporter[0])
     let isAppOn = useAppSelector(state=>state.appOnReducer.appOn)
+    let isPokeAvail = useAppSelector(state=>state.pokeImporter[0])
     let keyInd = 0;
+
+    const [inputText,setInputText] = useState<Array<String>>([]);
+
+    const handleInputChange = (event:React.MouseEvent<HTMLButtonElement>) => {
+        let x:any | string =event.target;
+        switch(x.innerHTML){
+            case 'SPACE':
+                setInputText(prev=>[...prev,' ']);
+                break;
+            case 'CLEAR':
+                setInputText([]);
+                break;
+            case 'BACKSPACE':
+                setInputText(prev=>prev.slice(0,prev.length-1))
+            break;
+            default:
+                setInputText(prev=>[...prev,x.innerHTML]);
+                break;
+
+        }
+    }   
+
+    useEffect(()=>{
+        console.log(inputText)
+        if(isPokeAvail){
+            console.log(isPokeAvail.results)
+        }
+    },[inputText,isPokeAvail])
 
     return(
         <section style={displayStyles}>
-            {pokemon ? ( <div style={inputScreenDims} className='input_screen'>{pokemon.results.map(item=>{return <a style={pokeA} href={`${item.url}`}>{item.name}</a>})}</div>) :  <div style={inputScreenDims} className='input_screen'></div>}
+            
+            <div style={inputScreenDims} className='input_screen'>
+                {isAppOn ? inputText : 'Please enter a Pokemon!'}
+                {isAppOn ? <div style={liveFeed} className='inner_screen'>{isPokeAvail ? `${isPokeAvail.results.map(poke=>{return poke.name})} `: 'bye'}</div> : <div style={liveFeed} className='inner_screen'>asdasd</div>}
+            </div>
 
             <div style={buttonWidth} className='key_container'>
-                {keyArr.map(item=><button style={buttons} key={keyInd=keyInd+1} className={`letter ${item}`}>{item.toUpperCase()}</button>)}
-            </div>
+                {keyArr.map(item=><button onClick={handleInputChange} style={buttons} key={keyInd=keyInd+1} className={`letter ${item}`}>{item.toUpperCase()}</button>)}
+            </div>   
+
             <div className='light_container' style={inputButtonWidth}>
                 <div style={{width:'100%',marginBottom:'1vw'}}>
                     <div>

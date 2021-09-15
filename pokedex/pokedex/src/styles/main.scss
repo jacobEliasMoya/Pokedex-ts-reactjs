@@ -143,6 +143,8 @@
                         @include flexRow();
                         justify-content: space-evenly;
                         flex-wrap: wrap;
+                        font-family: 'Press Start 2P', cursive;
+                        text-align: center;
                     }
                     .display_dpad{
                         position: relative;
@@ -237,7 +239,14 @@
                     }
                 }
                 .input_screen{
-                    overflow: scroll;
+                    position:relative;
+                    font-family: 'Press Start 2P', cursive;
+                    div{
+                        position: absolute;
+                        bottom: 0;
+                        @include flexCol();
+                        overflow: scroll;
+                    }
                 }
             }
         }

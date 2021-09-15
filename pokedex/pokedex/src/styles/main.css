@@ -290,6 +290,8 @@
           justify-content: space-evenly;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
 }
 
 #root .App .main_inner_container section .display_navigation .display_dpad {
@@ -467,6 +469,26 @@
 }
 
 #root .App .main_inner_container section .input_screen {
+  position: relative;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#root .App .main_inner_container section .input_screen div {
+  position: absolute;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   overflow: scroll;
 }
 /*# sourceMappingURL=main.css.map */
