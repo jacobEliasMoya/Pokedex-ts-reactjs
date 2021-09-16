@@ -1,12 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import appOnReducer from './features/AppStart'
 import pokeImporter from './features/SetPokeURL';
-
+import pokeSearch from './features/SetSearcTerm';
 // initially configuring store with certain reducer
 const store = configureStore({
     reducer:{
         appOnReducer,
-        pokeImporter
+        pokeImporter,
+        pokeSearch
     }
 })
 

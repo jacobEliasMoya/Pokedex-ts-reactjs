@@ -1,8 +1,8 @@
 import React, { ReactNode, useEffect,useState } from "react";
 import LittleLight from "../components/LittleLight";
 import FaIcon from "../components/FaIcon";
-import { useAppSelector } from "../app/hooks";
-
+import { useAppSelector,useAppDispatch } from "../app/hooks";
+import { getTerm } from "../store/features/SetSearcTerm";
 const displayStyles={
     width:'50%',
     height:'100%',
@@ -81,6 +81,7 @@ const liveFeed = {
     borderTopRightRadius:'0',
     opacity:'1',
     color:'black',
+    maxHeight : '30vh',
 }
 
 const liveFeedVis = {
@@ -93,10 +94,12 @@ const MainInputContainer:React.FC = () => {
     const keyArr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','enter','backspace','space','clear']
     let isAppOn = useAppSelector(state=>state.appOnReducer.appOn)
     let isPokeAvail = useAppSelector(state=>state.pokeImporter[0])
+    let pokeTerm = useAppSelector(state=>state.pokeSearch.pokeName)
     let keyInd = 0;
+    const dispatch = useAppDispatch();
+
 
     const [inputText,setInputText] = useState<Array<String>>([]);
-
     const handleInputChange = (event:React.MouseEvent<HTMLButtonElement>) => {
         let x:any | string =event.target;
         switch(x.innerHTML){
@@ -109,6 +112,9 @@ const MainInputContainer:React.FC = () => {
             case 'BACKSPACE':
                 setInputText(prev=>prev.slice(0,prev.length-1))
             break;
+            case 'ENTER':
+                dispatch(getTerm(inputText.join('')))
+            break;
             default:
                 setInputText(prev=>[...prev,x.innerHTML]);
                 break;
@@ -116,19 +122,27 @@ const MainInputContainer:React.FC = () => {
         }
     }   
 
+    // useEffect(()=>{
+    //     console.log(inputText)
+    //     if(isPokeAvail){
+    //         console.log(isPokeAvail.results)
+    //     }
+    // },[inputText,isPokeAvail])
+
     useEffect(()=>{
-        console.log(inputText)
-        if(isPokeAvail){
-            console.log(isPokeAvail.results)
-        }
-    },[inputText,isPokeAvail])
+        console.log(pokeTerm)
+    },[pokeTerm])
 
     return(
         <section style={displayStyles}>
             
             <div style={inputScreenDims} className='input_screen'>
                 {isAppOn ? inputText : 'Please enter a Pokemon!'}
-                {isAppOn ? <div style={liveFeed} className='inner_screen'>{isPokeAvail ? `${isPokeAvail.results.map(poke=>{return poke.name})} `: 'bye'}</div> : <div style={liveFeed} className='inner_screen'>asdasd</div>}
+                {isAppOn ? <div style={liveFeed} className='inner_screen'>{isPokeAvail ? isPokeAvail.results.map(poke=>{
+                    if(poke.name.includes(pokeTerm.toLowerCase())){
+                        return <a href={poke.url}>{poke.name}</a>
+                    }
+                }): 'Loading...'}</div> : <div style={liveFeed} className='inner_screen'></div>}
             </div>
 
             <div style={buttonWidth} className='key_container'>
