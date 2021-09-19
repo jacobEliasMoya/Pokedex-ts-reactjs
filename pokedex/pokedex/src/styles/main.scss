@@ -248,6 +248,19 @@
                         overflow: scroll;
                     }
                 }
+                .inner_screen{
+                    position: absolute;
+                    @include absCentered();
+                    text-align: center;
+                    font-family: 'Press Start 2P', cursive;
+                    a{
+                        &:hover{
+                            text-decoration: underline !important;
+                        }
+                    }
+                }
+
+                
             }
         }
 
