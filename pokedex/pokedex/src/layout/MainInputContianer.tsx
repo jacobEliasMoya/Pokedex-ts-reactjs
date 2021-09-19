@@ -3,6 +3,8 @@ import LittleLight from "../components/LittleLight";
 import FaIcon from "../components/FaIcon";
 import { useAppSelector,useAppDispatch } from "../app/hooks";
 import { getTerm } from "../store/features/SetSearcTerm";
+import { setSpecPoke } from "../store/features/GetSpecificPoke";
+
 const displayStyles={
     width:'50%',
     height:'100%',
@@ -78,7 +80,7 @@ const liveFeed = {
     borderRadius:'.75vw',
     color:'black',
     maxHeight : '60vh',
-    overflow:'scroll',
+    padding:'1vw'
 }
 
 const liveFeedNoVis = {
@@ -103,6 +105,7 @@ const MainInputContainer:React.FC = () => {
     let isPokeAvail = useAppSelector(state=>state.pokeImporter[0])
     let pokeTerm = useAppSelector(state=>state.pokeSearch.pokeName)
     let keyInd = 0;
+    const pokeURl = useAppSelector(state=>state.specificPokeUrl.specificUrl)
     const dispatch = useAppDispatch();
 
     const [inputText,setInputText] = useState<Array<String>>([]);
@@ -135,6 +138,12 @@ const MainInputContainer:React.FC = () => {
         }
     }
 
+    const closeWindow = () => {
+        dispatch(getTerm(''))
+        isTermEntered(false);
+        setInputText([''])
+    }
+
     const determineMatchStyle = () => {
         if(termEntered){
             return liveFeed;
@@ -151,21 +160,36 @@ const MainInputContainer:React.FC = () => {
         }
     }
 
+    const setPokeURL = (event:React.MouseEvent<HTMLDivElement>) => {
+        const targetElm:any = event.target;
+        const targetURL = targetElm.dataset.url;
+        dispatch(setSpecPoke(targetURL));
+    }
+
+    const fetchPokemon = async(url:string) =>{
+        await fetch(url).then(result=>result.json()).then(data=>{
+            console.log(data)
+        })
+      }
+
     useEffect(()=>{
-        console.log(pokeTerm)
-    },[pokeTerm])
+        pokeURl.length > 0 ? closeWindow() : console.log('');
+        console.log(pokeURl)
+        fetchPokemon(pokeURl);
+
+    },[pokeURl])
 
     return(
         <section style={displayStyles}>
             
             <div style={inputScreenDims} className='input_screen'>
-                {isAppOn ? inputText : 'Please enter a Pokemon!'}
+                {isAppOn ? inputText : 'Please Press Start'}
             </div>
 
-            {isPokeAvail ? <div style={determineMatchStyle()} className={determineMatchClass()}>{isPokeAvail ? isPokeAvail.results.map(poke=>{
+            {isPokeAvail ? <div style={determineMatchStyle()} className={determineMatchClass()}><i onClick={closeWindow} className='fa fa-window-close'/>{isPokeAvail ? isPokeAvail.results.map(poke=>{
                     if(poke.name.includes(pokeTerm.toLowerCase()) && pokeTerm.length > 0 && !poke.name.includes('-')){
                         isMatched();
-                        return <a key={isPokeAvail.results.indexOf(poke)} style={linkStyle} href={poke.url}>{poke.name}</a>
+                        return <div onClick={setPokeURL}  key={isPokeAvail.results.indexOf(poke)} style={linkStyle} data-url={poke.url}>{poke.name}</div>
                     }
 
                 }) : 'Loading...'}</div> : <div style={liveFeedNoVis} className='inner_screen'></div>}

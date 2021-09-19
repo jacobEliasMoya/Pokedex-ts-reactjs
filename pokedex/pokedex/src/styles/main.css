@@ -1,3 +1,27 @@
+::-webkit-scrollbar {
+  width: 1vw;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-transition: all ease .5s !important;
+  transition: all ease .5s !important;
+  background-color: black;
+  cursor: pointer;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #33CB67;
+  height: 1vw;
+  cursor: pointer;
+  border-left: 2px solid black;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8bfab2;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -493,6 +517,7 @@
 }
 
 #root .App .main_inner_container section .inner_screen {
+  z-index: 10;
   position: absolute;
   position: absolute;
   left: 50%;
@@ -501,9 +526,30 @@
           transform: translate(-50%, -50%);
   text-align: center;
   font-family: 'Press Start 2P', cursive;
+  overflow-y: scroll;
 }
 
-#root .App .main_inner_container section .inner_screen a:hover {
+#root .App .main_inner_container section .inner_screen div {
+  cursor: pointer;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  padding: .25vw 0vw;
+}
+
+#root .App .main_inner_container section .inner_screen div:hover {
   text-decoration: underline !important;
+}
+
+#root .App .main_inner_container section .inner_screen i {
+  color: white;
+  position: fixed;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+#root .App .main_inner_container section .inner_screen i:hover {
+  color: #86bdff;
 }
 /*# sourceMappingURL=main.css.map */

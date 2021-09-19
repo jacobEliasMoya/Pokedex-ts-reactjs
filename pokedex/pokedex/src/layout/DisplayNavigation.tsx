@@ -118,6 +118,7 @@ const DisplayNavigation:React.FC = () => {
 
     
     const isAppOn = useAppSelector(state=>state.appOnReducer.appOn);
+    const isPokeSelected = useAppSelector(state=>state.specificPokeUrl.specificUrl) 
     const dispatch = useAppDispatch();
 
     const handleAppStart = () => {
@@ -134,7 +135,7 @@ const DisplayNavigation:React.FC = () => {
                 <div style={thinRed} className='thin_red'></div>
                 <div style={thinGreen } className='thin_lightblue'></div>
                 <div style={bigGreen } className='power_text_display'>
-                    {!isAppOn ? 'START' : 'Pokemon Loaded'}
+                    {!isAppOn ? 'START' : isPokeSelected.length > 0 ? 'Pokemon Selected' : 'Pokemon loaded'}
                 </div>
             </div>
             <div className='display_dpad' style={partialWidth}>
