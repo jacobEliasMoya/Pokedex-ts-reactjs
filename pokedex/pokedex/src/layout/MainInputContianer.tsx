@@ -4,7 +4,7 @@ import FaIcon from "../components/FaIcon";
 import { useAppSelector,useAppDispatch } from "../app/hooks";
 import { getTerm } from "../store/features/SetSearcTerm";
 import { setSpecPoke } from "../store/features/GetSpecificPoke";
-
+import { setPokeStats } from "../store/features/SpecificPokeApi";
 const displayStyles={
     width:'50%',
     height:'100%',
@@ -168,15 +168,13 @@ const MainInputContainer:React.FC = () => {
 
     const fetchPokemon = async(url:string) =>{
         await fetch(url).then(result=>result.json()).then(data=>{
-            console.log(data)
+            dispatch(setPokeStats(data));
         })
       }
 
     useEffect(()=>{
         pokeURl.length > 0 ? closeWindow() : console.log('');
-        console.log(pokeURl)
         fetchPokemon(pokeURl);
-
     },[pokeURl])
 
     return(
@@ -191,8 +189,7 @@ const MainInputContainer:React.FC = () => {
                         isMatched();
                         return <div onClick={setPokeURL}  key={isPokeAvail.results.indexOf(poke)} style={linkStyle} data-url={poke.url}>{poke.name}</div>
                     }
-
-                }) : 'Loading...'}</div> : <div style={liveFeedNoVis} className='inner_screen'></div>}
+                }) : 'Loading...'}</div> : <div style={liveFeedNoVis} className='inner_screen'>...</div>}
 
             <div style={buttonWidth} className='key_container'>
                 {keyArr.map(item=><button onClick={handleInputChange} style={buttons} key={keyInd=keyInd+1} className={`letter ${item}`}>{item.toUpperCase()}</button>)}
