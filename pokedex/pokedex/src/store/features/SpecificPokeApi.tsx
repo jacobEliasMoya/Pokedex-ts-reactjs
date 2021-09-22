@@ -1,4 +1,6 @@
 import { createSlice, current, PayloadAction } from "@reduxjs/toolkit";
+import { stat } from "fs";
+import { STATUS_CODES } from "http";
 
 interface PokeAbilities {
     ability : {
@@ -118,8 +120,7 @@ const specificPokeStats = createSlice({
     initialState,
     reducers:{
         setPokeStats : (state,action:PayloadAction<PokemonStats>) => {
-           state.push(action.payload)
-           console.log(current(state))
+            state[0] = action.payload;
         }
     }
 })

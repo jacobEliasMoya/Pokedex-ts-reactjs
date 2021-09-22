@@ -104,11 +104,11 @@ const MainInputContainer:React.FC = () => {
     let isAppOn = useAppSelector(state=>state.appOnReducer.appOn)
     let isPokeAvail = useAppSelector(state=>state.pokeImporter[0])
     let pokeTerm = useAppSelector(state=>state.pokeSearch.pokeName)
-    let keyInd = 0;
     const pokeURl = useAppSelector(state=>state.specificPokeUrl.specificUrl)
-    const dispatch = useAppDispatch();
-
     const [inputText,setInputText] = useState<Array<String>>([]);
+    const dispatch = useAppDispatch();
+    let keyInd = 0;
+
     const handleInputChange = (event:React.MouseEvent<HTMLButtonElement>) => {
         let x:any | string =event.target;
         switch(x.innerHTML){
@@ -170,11 +170,13 @@ const MainInputContainer:React.FC = () => {
         await fetch(url).then(result=>result.json()).then(data=>{
             dispatch(setPokeStats(data));
         })
-      }
+    }
+
+    const nulRet = () => null;
 
     useEffect(()=>{
-        pokeURl.length > 0 ? closeWindow() : console.log('');
-        fetchPokemon(pokeURl);
+        pokeURl.length > 0 ? closeWindow() : nulRet();
+        pokeURl.length > 0 ? fetchPokemon(pokeURl) : nulRet();
     },[pokeURl])
 
     return(

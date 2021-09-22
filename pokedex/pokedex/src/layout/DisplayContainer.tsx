@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import defaultPika from '../images/test_pika.png';
 import LittleLight from "../components/LittleLight";
 import DisplayNavigation from "./DisplayNavigation";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 
 const displayStyles={
     width:'50%',
@@ -30,7 +31,6 @@ const innerImageContStyles = {
 const innerImage = {
     height:'140%',
     width:'90%',
-    transform:'translate(-8%)'
 }
 
 const fullWidth = {
@@ -51,12 +51,21 @@ const speakerLines ={
 }
 
 const DisplayContainer:React.FC = () => {
+    
+    const [imageSrc, setImageSrc] = useState<string>(defaultPika)
+
+    const pokeStats = useAppSelector(state=>state.setPokemonStats[0]) 
+
+    useEffect(()=>{
+        pokeStats ? setImageSrc(pokeStats.sprites.front_default) : console.log();
+    },[pokeStats])
+
     return(
         <section style={displayStyles}>
             <div style={outerImageContStyles} className='outer_image_container'>
                 <div className='light_container'><LittleLight color='red'/><LittleLight color='red'/></div>
                 <div style={innerImageContStyles} className='inner_image_container'>
-                    <img src={defaultPika} style={innerImage} alt="default_pikachu" />
+                    <img src={imageSrc} style={innerImage} alt="default_pikachu" />
                 </div>
                 <div style={fullWidth} className='light_container apart'>
                     <LittleLight color='red'/>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FaIcon from "../components/FaIcon";
 import { useAppSelector,useAppDispatch } from "../app/hooks";
 import { beginApp } from "../store/features/AppStart";
@@ -119,13 +119,17 @@ const DisplayNavigation:React.FC = () => {
     
     const isAppOn = useAppSelector(state=>state.appOnReducer.appOn);
     const isPokeSelected = useAppSelector(state=>state.specificPokeUrl.specificUrl) 
+    const pokeStats = useAppSelector(state=>state.setPokemonStats[0])
     const dispatch = useAppDispatch();
 
     const handleAppStart = () => {
         !isAppOn ? dispatch(beginApp()) : console.log(); 
     }
 
-    
+    useEffect(()=>{
+        console.log(pokeStats)
+    },[pokeStats])
+
     return(
         <div style={fullWidth} className='display_navigation'>
             <div style={partialWidth}>
@@ -135,8 +139,8 @@ const DisplayNavigation:React.FC = () => {
                 <div style={thinRed} className='thin_red'></div>
                 <div style={thinGreen } className='thin_lightblue'></div>
                 <div style={bigGreen } className='power_text_display'>
-                    {!isAppOn ? 'START' : isPokeSelected.length > 0 ? 'Pokemon Selected' : 'Pokemon loaded'}
-                </div>
+                    {!isAppOn ? 'START' : isPokeSelected.length > 0 ? pokeStats ? `${pokeStats.name}` : '...' : 'Pokemon loaded'}
+                </div>  
             </div>
             <div className='display_dpad' style={partialWidth}>
                 <div style={buttonHorz} className='button_horizontal'>
