@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import defaultPika from '../images/test_pika.png';
 import LittleLight from "../components/LittleLight";
 import DisplayNavigation from "./DisplayNavigation";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { useAppSelector } from "../app/hooks";
 
 const displayStyles={
     width:'50%',
@@ -50,6 +50,18 @@ const speakerLines ={
     borderRadius:'1vw'
 }
 
+const typeStyle = {
+    padding:'.25vw',
+    borderRadius:'.75rem',
+    minWidth:'25%',
+    marginTop:'.25vw',
+    border:'.2vw solid black',
+    color:'white',
+    fontSize:'1vw',
+    boxShadow:'0 0 .5vw black',
+    textShadow:'0 0 .5vw black'
+}
+
 const DisplayContainer:React.FC = () => {
     
     const [imageSrc, setImageSrc] = useState<string>(defaultPika)
@@ -66,6 +78,7 @@ const DisplayContainer:React.FC = () => {
                 <div className='light_container'><LittleLight color='red'/><LittleLight color='red'/></div>
                 <div style={innerImageContStyles} className='inner_image_container'>
                     <img src={imageSrc} style={innerImage} alt="default_pikachu" />
+                    {pokeStats ? pokeStats.types.map(item=><div style={typeStyle} className={item.type.name}>{item.type.name.toUpperCase()}</div>) : '..'}
                 </div>
                 <div style={fullWidth} className='light_container apart'>
                     <LittleLight color='red'/>

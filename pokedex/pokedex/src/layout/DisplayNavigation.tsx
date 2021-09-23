@@ -51,7 +51,7 @@ const bigGreen ={
     border:'.25vw solid black',
     padding:'.1vw',
     boxShadow:'inset 0 0 1rem black',
-    fontSize:'2vw',
+    fontSize:'1.75vw',
     justifyContent:'center',
 }
 
@@ -139,7 +139,7 @@ const DisplayNavigation:React.FC = () => {
                 <div style={thinRed} className='thin_red'></div>
                 <div style={thinGreen } className='thin_lightblue'></div>
                 <div style={bigGreen } className='power_text_display'>
-                    {!isAppOn ? 'START' : isPokeSelected.length > 0 ? pokeStats ? `${pokeStats.name}` : '...' : 'Pokemon loaded'}
+                    {!isAppOn ? 'START' : isPokeSelected.length > 0 ? pokeStats ? `${pokeStats.name.toUpperCase()}` : '...' : 'Pokemon loaded'}
                 </div>  
             </div>
             <div className='display_dpad' style={partialWidth}>

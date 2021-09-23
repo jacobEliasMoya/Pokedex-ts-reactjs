@@ -297,7 +297,41 @@
                         }
                     }
                 }
-
+                .outer_image_container{
+                    .inner_image_container{
+                        padding: 1vw;
+                        position: relative;
+                        @include flexCol();
+                        align-items: flex-end;
+                        justify-content: flex-end;
+                        img{
+                            @include absCentered();
+                        }
+                        div{
+                            position: relative;
+                            z-index: 1;
+                            font-family: 'Press Start 2P', cursive;
+                            @include flexCol();
+                        }
+                        .poison{background: #A040A0;}
+                        .electric{background: #F8D030;}
+                        .fire{background: #F08030;}
+                        .water{background: #6890F0;}
+                        .grass{background:#78C850}
+                        .ice{background: #98D8D8;}
+                        .fighting{background: #C03028;}
+                        .ground{background: #E0C068;}
+                        .flying{background: #A890F0;}
+                        .psychic{background: #F85888;}
+                        .bug{background: #A8B820;}
+                        .rock{background: #B8A038;}
+                        .ghost{background: #705898;}
+                        .dark{background: #705848;}
+                        .dragon{background: #7038F8;}
+                        .steel{background: #B8B8D0;}
+                        .fairy{background: #F0B6BC;}
+                    }
+                }
                 
             }
         }

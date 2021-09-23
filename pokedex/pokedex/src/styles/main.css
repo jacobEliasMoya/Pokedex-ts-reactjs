@@ -552,4 +552,123 @@
 #root .App .main_inner_container section .inner_screen i:hover {
   color: #86bdff;
 }
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container {
+  padding: 1vw;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container div {
+  position: relative;
+  z-index: 1;
+  font-family: 'Press Start 2P', cursive;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .poison {
+  background: #A040A0;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .electric {
+  background: #F8D030;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .fire {
+  background: #F08030;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .water {
+  background: #6890F0;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .grass {
+  background: #78C850;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .ice {
+  background: #98D8D8;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .fighting {
+  background: #C03028;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .ground {
+  background: #E0C068;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .flying {
+  background: #A890F0;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .psychic {
+  background: #F85888;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .bug {
+  background: #A8B820;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .rock {
+  background: #B8A038;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .ghost {
+  background: #705898;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .dark {
+  background: #705848;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .dragon {
+  background: #7038F8;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .steel {
+  background: #B8B8D0;
+}
+
+#root .App .main_inner_container section .outer_image_container .inner_image_container .fairy {
+  background: #F0B6BC;
+}
 /*# sourceMappingURL=main.css.map */
